@@ -59,37 +59,40 @@
 
 
 
-            Console.WriteLine($"{myFirstCar.NameOfCar}, is driving, broom broom, it was made back in {myFirstCar.nameOfYear} with a model name of {myFirstCar.nameOfModel} in a very beautiful " +
-                $"bright {myFirstCar.nameOfColor}");
+            //Console.WriteLine($"{myFirstCar.NameOfCar}, is driving, broom broom, it was made back in {myFirstCar.nameOfYear} with a model name of {myFirstCar.nameOfModel} in a very beautiful " +
+            //    $"bright {myFirstCar.nameOfColor}");
 
-            Console.ReadKey();
+            //Console.ReadKey();
             {
-                myFirstCar.GoFaster(ref myFirstCar.CurrentSpeed);
+                //myFirstCar.GoFaster(ref myFirstCar.CurrentSpeed);
 
 
 
-                Console.WriteLine(myFirstCar.CurrentSpeed);
+                //Console.WriteLine(myFirstCar.CurrentSpeed);
 
-                myFirstCar.GoSlower(ref myFirstCar.CurrentSpeed);
-                Console.ReadKey();
+                //myFirstCar.GoSlower(ref myFirstCar.CurrentSpeed);
+                //Console.ReadKey();
                 //myFirstCar.GoSlower(ref myFirstCar.speed);
 
                 CarOwner John = new CarOwner();
 
                 John.Cars.Add(myFirstCar);
                 John.Cars.Add(mySecondCar);
-                Console.WriteLine(John.Cars.Count);
+                //Console.WriteLine(John.Cars.Count);
 
 
-                for (int i = 0; i < John.Cars.Count; i++)
-                {
-                    Console.WriteLine(John.Cars[i]);
-                }
+                //for (int i = 0; i < John.Cars.Count; i++)
+                //{
+                //    Console.WriteLine(John.Cars[i]);
+                //}
 
-                Console.WriteLine("\n" + John.Cars[0]);
+                //Console.WriteLine("\n" + John.Cars[0]);
 
-                Console.WriteLine(myFirstCar);
+                //Console.WriteLine(myFirstCar);
 
+                //Console.ReadKey();
+
+                WebsiteGenerator.DisplayHTML();
                 Console.ReadKey();
 
             }
@@ -148,9 +151,9 @@
             Console.WriteLine($"\nYour car is going {speed}");
         }
     }
-    class HTML
+    class WebsiteGenerator
     {
-        public void DisplayHTML(string html)
+        public static void DisplayHTML()
         {
             Console.WriteLine("<!DOCTYPE html >\n < html >\n < body >\n < h1 > Välkomna! </ h1 >\r\n < p > Kurs om C#</p>\r\n<p>Kurs om Databaser</p>" +
             "\r\n<p>Kurs om Webbutveckling</p>\r\n<p>Kurs om Clean code</p>\r\n</body>\r\n</html>");

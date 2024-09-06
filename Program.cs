@@ -94,58 +94,66 @@
 
             }
         }
-        public class CarOwner
+    }
+    public class CarOwner
+    {
+        public string Name = "";
+        public List<Car> Cars = new List<Car>();
+    }
+    public class Msg
+    {
+
+        public static void DisplayMessage(string msg)
         {
-            public string Name = "";
-            public List<Car> Cars = new List<Car>();
+            Console.WriteLine(msg);
         }
-        public class Msg
+    }
+    public class Car
+    {
+        public override string ToString()
         {
-
-            public static void Write(string msg)
-            {
-                Console.WriteLine(msg);
-            }
+            return $"{NameOfCar} {nameOfModel}";
         }
-        public class Car
+
+        public string NameOfCar = "";
+        public string nameOfColor = "";
+        public string nameOfModel = "";
+        public string nameOfYear = "";
+        public int CurrentSpeed = 0;
+        public int maxSpeed = 0;
+        public int minSpeed = 0;
+
+
+        public void GoFaster(ref int speed)
         {
-            public override string ToString()
+            while (speed != maxSpeed)
             {
-                return $"{NameOfCar} {nameOfModel}";
+                speed++;
+                Console.Write(speed + " km/h ");
+
             }
+            //Console.WriteLine($"\nYour car is going {speed} km/h");
+            //return speed;
+        }
 
-            public string NameOfCar = "";
-            public string nameOfColor = "red";
-            public string nameOfModel = "";
-            public string nameOfYear = "";
-            public int CurrentSpeed = 0;
-            public int maxSpeed = 0;
-            public int minSpeed = 0;
+        public void GoSlower(ref int speed)
+        {
 
-
-            public void GoFaster(ref int speed)
+            while (speed != minSpeed)
             {
-                while (speed != maxSpeed)
-                {
-                    speed++;
-                    Console.Write(speed + " km/h ");
+                speed--;
+                Console.Write(speed + " km/h ");
 
-                }
-                //Console.WriteLine($"\nYour car is going {speed} km/h");
-                //return speed;
             }
-
-            public void GoSlower(ref int speed)
-            {
-
-                while (speed != minSpeed)
-                {
-                    speed--;
-                    Console.Write(speed + " km/h ");
-
-                }
-                Console.WriteLine($"\nYour car is going {speed}");
-            }
+            Console.WriteLine($"\nYour car is going {speed}");
+        }
+    }
+    class HTML
+    {
+        public void DisplayHTML(string html)
+        {
+            Console.WriteLine("<!DOCTYPE html >\n < html >\n < body >\n < h1 > Välkomna! </ h1 >\r\n < p > Kurs om C#</p>\r\n<p>Kurs om Databaser</p>" +
+            "\r\n<p>Kurs om Webbutveckling</p>\r\n<p>Kurs om Clean code</p>\r\n</body>\r\n</html>");
         }
     }
 }

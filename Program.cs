@@ -152,6 +152,7 @@
     {
         public void DisplayHTML(string html)
         {
+            //adding a comment
             Console.WriteLine("<!DOCTYPE html >\n < html >\n < body >\n < h1 > Välkomna! </ h1 >\r\n < p > Kurs om C#</p>\r\n<p>Kurs om Databaser</p>" +
             "\r\n<p>Kurs om Webbutveckling</p>\r\n<p>Kurs om Clean code</p>\r\n</body>\r\n</html>");
         }

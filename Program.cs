@@ -92,7 +92,11 @@
 
                 //Console.ReadKey();
 
-                WebsiteGenerator.DisplayHTML();
+                WebsiteGenerator HTML = new WebsiteGenerator("<!DOCTYPE html >\n < html >\n < body >\n < h1 > Välkomna! </ h1 >\r\n < p > Kurs om C#</p>\r\n<p>Kurs om Databaser</p>" +
+            "\r\n<p>Kurs om Webbutveckling</p>\r\n<p>Kurs om Clean code</p>\r\n</body>\r\n</html>");
+
+                Console.WriteLine($"{HTML}");
+
                 Console.ReadKey();
 
             }
@@ -153,9 +157,20 @@
     }
     class WebsiteGenerator
     {
-        public static void DisplayHTML()
+        public string Hemsida { get; private set; }
+
+        public WebsiteGenerator(string hemsida)
         {
-            Console.WriteLine("<!DOCTYPE html >\n < html >\n < body >\n < h1 > Välkomna! </ h1 >\r\n < p > Kurs om C#</p>\r\n<p>Kurs om Databaser</p>" +
+             Hemsida = hemsida;
+        }
+        public override string ToString()
+        {
+            return $"{Hemsida}";
+        }
+        public void DisplayHemsida(string value)
+        {
+            Hemsida = value;
+            Console.WriteLine($"<!DOCTYPE html >\n < html >\n < body >\n < h1 > Välkomna! </ h1 >\r\n < p > Kurs om C#</p>\r\n<p>Kurs om Databaser</p>" +
             "\r\n<p>Kurs om Webbutveckling</p>\r\n<p>Kurs om Clean code</p>\r\n</body>\r\n</html>");
         }
     }

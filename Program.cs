@@ -1,4 +1,6 @@
-﻿namespace WorkingWithMethods_Classes
+﻿using System.Drawing;
+
+namespace WorkingWithMethods_Classes
 {
     internal class Program
     {
@@ -92,10 +94,20 @@
 
                 //Console.ReadKey();
 
-                WebsiteGenerator HTML = new WebsiteGenerator("<!DOCTYPE html >\n < html >\n < body >\n < h1 > Välkomna! </ h1 >\r\n < p > Kurs om C#</p>\r\n<p>Kurs om Databaser</p>" +
-            "\r\n<p>Kurs om Webbutveckling</p>\r\n<p>Kurs om Clean code</p>\r\n</body>\r\n</html>");
+                //    string htmlSidan = "<!DOCTYPE html >\n < html >\n < body >\n < h1 > Välkomna! </ h1 >\r\n < p > Kurs om C#</p>\r\n<p>Kurs om Databaser</p>" +
+                //"\r\n<p>Kurs om Webbutveckling</p>\r\n<p>Kurs om Clean code</p>\r\n</body>\r\n</html>";
 
-                Console.WriteLine($"{HTML}");
+                string[] kursArray = { "C#", "Databaser", "Webbutveckling", "Clean Code" };
+
+
+                WebsiteGenerator HTML = new WebsiteGenerator(kursArray);
+                HTML.KursArray[0] = "F#";
+
+                Console.WriteLine("Hej, vilken klass går du i?");
+                string användarSvar = Console.ReadLine() ?? string.Empty;
+
+
+                WebsiteGenerator.DisplayHemsida(användarSvar, "Hallå där elev", HTML.KursArray);
 
                 Console.ReadKey();
 
@@ -155,13 +167,36 @@
             Console.WriteLine($"\nYour car is going {speed}");
         }
     }
-    class WebsiteGenerator
+    public class WebsiteController : WebsiteGenerator
+    {
+        public WebsiteController()
+        {
+            
+        }
+    }
+
+    public class WebsiteGenerator
     {
         public string Hemsida { get; private set; }
 
+        public string[] KursArray { get; private set; } = new string[4];
+
+        public WebsiteGenerator()
+        {
+
+        }
+        public WebsiteGenerator(string[] arrayMedKurser)
+        {
+            KursArray = arrayMedKurser;
+        }
         public WebsiteGenerator(string hemsida)
         {
-             Hemsida = hemsida;
+            Hemsida = hemsida;
+        }
+        public WebsiteGenerator(string hemsida, string[] arrayMedKurser)
+        {
+            Hemsida = hemsida;
+            KursArray = arrayMedKurser;
         }
         public override string ToString()
         {
@@ -169,9 +204,22 @@
         }
         public void DisplayHemsida(string value)
         {
-            Hemsida = value;
-            Console.WriteLine($"<!DOCTYPE html >\n < html >\n < body >\n < h1 > Välkomna! </ h1 >\r\n < p > Kurs om C#</p>\r\n<p>Kurs om Databaser</p>" +
-            "\r\n<p>Kurs om Webbutveckling</p>\r\n<p>Kurs om Clean code</p>\r\n</body>\r\n</html>");
+            Console.WriteLine(value);
+        }
+        public static void DisplayHemsida(string[] array)
+        {
+            foreach (string item in array)
+            {
+                Console.WriteLine(item);
+            }
+        }
+        public static void DisplayHemsida(string klassNamn, string klassMeddelande, string[] array)
+        {
+            Console.WriteLine($"Välkommen, {klassNamn}\nMeddelandet till dig är: {klassMeddelande}\nDessa är kurser vi har att erbjuda: ");
+            foreach (string item in array)
+            {
+                Console.WriteLine($"{item}");
+            }
         }
     }
 }

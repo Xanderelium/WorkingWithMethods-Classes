@@ -101,14 +101,13 @@ namespace WorkingWithMethods_Classes
 
 
                 WebsiteGenerator HTML = new WebsiteGenerator(kursArray);
+                HTML.KursArray[0] = "F#";
 
                 Console.WriteLine("Hej, vilken klass går du i?");
                 string användarSvar = Console.ReadLine() ?? string.Empty;
 
 
                 WebsiteGenerator.DisplayHemsida(användarSvar, "Hallå där elev", HTML.KursArray);
-
-
 
                 Console.ReadKey();
 
